@@ -1,0 +1,20 @@
+{{ template "base" . }}
+
+{{ define "content"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1> We are all about random.</h1>
+                <h3> Here is some random for you: {{index .FloatMap "uniform" }}</h3>
+
+                <p>
+                {{ if ne (index .StrMap "remote_ip") "" }}
+                Your IP address is {{ index .StrMap "remote_ip" }}
+                {{ else }}
+                Sneaky bugger. Go to <a href="/">Home now!</a>
+                {{ end }}
+                </p>
+            </div>
+        </div>
+    </div>
+{{ end }}
